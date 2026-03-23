@@ -1,0 +1,35 @@
+{
+  "name": "react-avatar-studio",
+  "version": "1.0.0",
+  "description": "Production-ready React + TypeScript NPM package for avatar customization.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "keywords": [
+    "react",
+    "avatar",
+    "customizer",
+    "react-nice-avatar"
+  ],
+  "author": "Sinan sinan.m.p333@gmail.com",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "dependencies": {
+    "react-nice-avatar": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "tsup": "^8.0.0",
+    "eslint": "^8.0.0"
+  }
+}

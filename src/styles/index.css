@@ -1,0 +1,243 @@
+/* ras stands for react-avatar-studio (previously react-nice-avatar-customizer) */
+.ras-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.ras-preview-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+}
+
+.ras-preview-large {
+  width: 150px;
+  height: 150px;
+}
+
+.ras-controls-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ras-sections-nav {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.ras-section-btn {
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.2s;
+}
+
+.ras-section-btn:hover {
+  background: #f3f4f6;
+}
+
+.ras-section-btn.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.ras-options-panel {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.ras-options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ras-option-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.ras-option-btn:hover {
+  border-color: #9ca3af;
+}
+
+.ras-option-btn.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 500;
+}
+
+.ras-color-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transition: transform 0.1s, border-color 0.2s;
+}
+
+.ras-color-btn:hover {
+  transform: scale(1.1);
+}
+
+.ras-color-btn.active {
+  border-color: #2563eb;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #2563eb;
+}
+
+.ras-actions-area {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ras-action-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.ras-randomize-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  margin-right: auto;
+}
+
+.ras-randomize-btn:hover {
+  background: #f3f4f6;
+}
+
+.ras-cancel-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.ras-cancel-btn:hover {
+  background: #f3f4f6;
+}
+
+.ras-save-btn {
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  color: white;
+}
+
+.ras-save-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Modal Styles */
+.ras-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.ras-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.ras-modal-content {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 51;
+}
+
+.ras-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ras-modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ras-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.375rem;
+}
+
+.ras-modal-close:hover {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.ras-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+}
