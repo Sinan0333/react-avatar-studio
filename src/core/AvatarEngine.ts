@@ -12,6 +12,7 @@ export interface AvatarSection<TOptionValue = string> {
   type: AvatarOptionType;
   options: AvatarOption<TOptionValue>[];
   defaultValue: TOptionValue;
+  group?: string;
   allowMultiple?: boolean;
   hidden?: boolean;
   description?: string;

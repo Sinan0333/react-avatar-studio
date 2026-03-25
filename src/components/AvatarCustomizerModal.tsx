@@ -43,12 +43,6 @@ export function AvatarCustomizerModal<TConfig = any>(props: AvatarCustomizerModa
         role="dialog"
         aria-modal="true"
       >
-        <div className="ras-modal-header">
-          <h2 className="ras-modal-title">Customize Avatar</h2>
-          <button className="ras-modal-close" onClick={onClose} aria-label="Close">
-            &times;
-          </button>
-        </div>
         <div className="ras-modal-body">
           <AvatarCustomizerInline
             {...inlineProps}
@@ -56,8 +50,8 @@ export function AvatarCustomizerModal<TConfig = any>(props: AvatarCustomizerModa
               if (inlineProps.onCancel) inlineProps.onCancel();
               onClose();
             }}
-            onSave={(config) => {
-              if (inlineProps.onSave) inlineProps.onSave(config);
+            onSave={(config, exportData) => {
+              if (inlineProps.onSave) inlineProps.onSave(config, exportData);
               onClose();
             }}
           />

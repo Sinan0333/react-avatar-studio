@@ -8,6 +8,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'sex',
     label: 'Sex',
     type: 'select',
+    group: 'Face & Body',
     options: [
       { value: 'man', label: 'Man' },
       { value: 'woman', label: 'Woman' },
@@ -18,6 +19,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'faceColor',
     label: 'Face Color',
     type: 'color',
+    group: 'Face & Body',
     options: [
       { value: '#F9C9B6', label: 'Light', colorHex: '#F9C9B6' },
       { value: '#AC6651', label: 'Dark', colorHex: '#AC6651' },
@@ -28,6 +30,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'earSize',
     label: 'Ear Size',
     type: 'select',
+    group: 'Face & Body',
     options: [
       { value: 'small', label: 'Small' },
       { value: 'big', label: 'Big' },
@@ -38,6 +41,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'hairColor',
     label: 'Hair Color',
     type: 'color',
+    group: 'Hair',
     options: [
       { value: '#000', label: 'Black', colorHex: '#000' },
       { value: '#fff', label: 'White', colorHex: '#fff' },
@@ -53,6 +57,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'hairStyle',
     label: 'Hair Style',
     type: 'select',
+    group: 'Hair',
     options: [
       { value: 'normal', label: 'Normal' },
       { value: 'thick', label: 'Thick' },
@@ -66,6 +71,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'hatStyle',
     label: 'Hat Style',
     type: 'select',
+    group: 'Accessories',
     options: [
       { value: 'none', label: 'None' },
       { value: 'beanie', label: 'Beanie' },
@@ -77,6 +83,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'hatColor',
     label: 'Hat Color',
     type: 'color',
+    group: 'Accessories',
     options: [
       { value: '#000', label: 'Black', colorHex: '#000' },
       { value: '#fff', label: 'White', colorHex: '#fff' },
@@ -92,6 +99,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'eyeStyle',
     label: 'Eye Style',
     type: 'select',
+    group: 'Face & Body',
     options: [
       { value: 'circle', label: 'Circle' },
       { value: 'oval', label: 'Oval' },
@@ -103,6 +111,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'glassesStyle',
     label: 'Glasses Style',
     type: 'select',
+    group: 'Accessories',
     options: [
       { value: 'none', label: 'None' },
       { value: 'round', label: 'Round' },
@@ -114,6 +123,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'noseStyle',
     label: 'Nose Style',
     type: 'select',
+    group: 'Face & Body',
     options: [
       { value: 'short', label: 'Short' },
       { value: 'long', label: 'Long' },
@@ -125,6 +135,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'mouthStyle',
     label: 'Mouth Style',
     type: 'select',
+    group: 'Face & Body',
     options: [
       { value: 'laugh', label: 'Laugh' },
       { value: 'smile', label: 'Smile' },
@@ -136,6 +147,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'shirtStyle',
     label: 'Shirt Style',
     type: 'select',
+    group: 'Clothing',
     options: [
       { value: 'hoody', label: 'Hoody' },
       { value: 'short', label: 'Short' },
@@ -147,6 +159,7 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     id: 'shirtColor',
     label: 'Shirt Color',
     type: 'color',
+    group: 'Clothing',
     options: [
       { value: '#9287FF', label: 'Purple', colorHex: '#9287FF' },
       { value: '#6BD9E9', label: 'Light Blue', colorHex: '#6BD9E9' },
@@ -158,8 +171,9 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
   },
   {
     id: 'bgColor',
-    label: 'Background Color',
+    label: 'Background',
     type: 'color',
+    group: 'Background',
     options: [
       { value: '#9287FF', label: 'Purple', colorHex: '#9287FF' },
       { value: '#6BD9E9', label: 'Light Blue', colorHex: '#6BD9E9' },

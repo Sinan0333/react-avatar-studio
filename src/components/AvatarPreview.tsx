@@ -7,11 +7,12 @@ export function AvatarPreview<TConfig = any>({
   config,
   className,
   style,
+  id
 }: AvatarPreviewProps<TConfig>) {
   const finalConfig = config || engine.getDefaultConfig();
 
   return (
-    <div className={`ras-preview ${className || ''}`} style={style}>
+    <div id={id} className={`ras-preview ${className || ''}`} style={style}>
       {engine.render(finalConfig)}
     </div>
   );
