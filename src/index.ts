@@ -1,10 +1,9 @@
 export * from './types';
-export * from './core/AvatarEngine';
-export * from './engines/reactNiceAvatarEngine';
+export * from './constants/avatarSections';
 export * from './utils/avatarHelpers';
-export * from './hooks/useAvatarCustomizer';
+export * from './hooks/useAvatarCustomize';
 export * from './components/AvatarPreview';
-export * from './components/AvatarCustomizerInline';
-export * from './components/AvatarCustomizerModal';
+export * from './components/AvatarCustomizeInline';
+export * from './components/AvatarCustomizeModal';
 
 import './styles/index.css';

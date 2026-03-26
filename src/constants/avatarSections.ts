@@ -1,9 +1,22 @@
-import React from 'react';
-import Avatar, { genConfig, AvatarConfig } from 'react-nice-avatar';
-import type { AvatarEngine, AvatarSection } from '../core/AvatarEngine';
+export interface AvatarOption {
+  value: string | number;
+  label: string;
+  colorHex?: string; // Optional hex for color palettes
+  imageUrl?: string; // Optional image preview
+}
 
-// Define the sections based on react-nice-avatar capabilities
-const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
+export interface AvatarSection {
+  id: string; // Key in the config state
+  label: string; // Display name
+  type: 'select' | 'color' | 'slider';
+  options: AvatarOption[];
+  defaultValue: any;
+  group?: string; // Category like 'Face', 'Hair', 'Clothing'
+  description?: string;
+  hidden?: boolean;
+}
+
+export const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
   {
     id: 'sex',
     label: 'Sex',
@@ -190,30 +203,3 @@ const REACT_NICE_AVATAR_SECTIONS: AvatarSection[] = [
     defaultValue: '#E0DDFF',
   },
 ];
-
-export const reactNiceAvatarEngine: AvatarEngine<AvatarConfig, any> = {
-  id: 'react-nice-avatar',
-  displayName: 'React Nice Avatar',
-  render: (config: AvatarConfig, props?: any) => {
-    return React.createElement(Avatar, { style: { width: '100%', height: '100%' }, ...props, ...config });
-  },
-  getDefaultConfig: () => {
-    return genConfig({});
-  },
-  getSections: () => {
-    return REACT_NICE_AVATAR_SECTIONS;
-  },
-  validateConfig: (config: any) => {
-    // Simple validation: check if it's an object
-    return typeof config === 'object' && config !== null;
-  },
-  normalizeConfig: (config: any) => {
-    // Attempt to normalize
-    return genConfig(config);
-  },
-  randomizeConfig: (partial?: Partial<AvatarConfig>) => {
-    return genConfig({ isRandom: true, ...(partial as any) } as any);
-  },
-};
-
-export default reactNiceAvatarEngine;

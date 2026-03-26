@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import type { AvatarCustomizerModalProps } from '../types';
-import { AvatarCustomizerInline } from './AvatarCustomizerInline';
+import type { AvatarCustomizeModalProps } from '../types';
+import { AvatarCustomizeInline } from './AvatarCustomizeInline';
 import '../styles/index.css';
 
-export function AvatarCustomizerModal<TConfig = any>(props: AvatarCustomizerModalProps<TConfig>) {
+export function AvatarCustomizeModal(props: AvatarCustomizeModalProps) {
   const { open, onClose, modalClassName, overlayClassName, ...inlineProps } = props;
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +44,7 @@ export function AvatarCustomizerModal<TConfig = any>(props: AvatarCustomizerModa
         aria-modal="true"
       >
         <div className="ras-modal-body">
-          <AvatarCustomizerInline
+          <AvatarCustomizeInline
             {...inlineProps}
             onCancel={() => {
               if (inlineProps.onCancel) inlineProps.onCancel();
@@ -61,4 +61,4 @@ export function AvatarCustomizerModal<TConfig = any>(props: AvatarCustomizerModa
   );
 }
 
-export default AvatarCustomizerModal;
+export default AvatarCustomizeModal;

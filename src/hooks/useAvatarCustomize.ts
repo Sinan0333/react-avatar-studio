@@ -1,29 +1,27 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { AvatarEngine, AvatarSection } from '../types';
-import { reactNiceAvatarEngine } from '../engines/reactNiceAvatarEngine';
+import { AvatarConfig, genConfig } from 'react-nice-avatar';
+import { REACT_NICE_AVATAR_SECTIONS } from '../constants/avatarSections';
 
-export interface UseAvatarCustomizerProps<TConfig> {
-  engine?: AvatarEngine<TConfig, any>;
-  value?: TConfig;
-  defaultValue?: TConfig;
-  onChange?: (config: TConfig) => void;
+export interface UseAvatarCustomizeProps {
+  value?: AvatarConfig;
+  defaultValue?: AvatarConfig;
+  onChange?: (config: AvatarConfig) => void;
   hiddenSections?: string[];
   sectionOrder?: string[];
 }
 
-export function useAvatarCustomizer<TConfig>({
-  engine = reactNiceAvatarEngine as any,
+export function useAvatarCustomize({
   value,
   defaultValue,
   onChange,
   hiddenSections = [],
   sectionOrder = [],
-}: UseAvatarCustomizerProps<TConfig>) {
+}: UseAvatarCustomizeProps) {
   // Use controlled value if provided, else uncontrolled internal state
   const isControlled = value !== undefined;
   
-  const [internalConfig, setInternalConfig] = useState<TConfig>(
-    () => value ?? defaultValue ?? engine.getDefaultConfig()
+  const [internalConfig, setInternalConfig] = useState<AvatarConfig>(
+    () => value ?? defaultValue ?? genConfig()
   );
 
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
@@ -31,7 +29,7 @@ export function useAvatarCustomizer<TConfig>({
   const config = isControlled ? value : internalConfig;
 
   // Process sections from engine
-  const rawSections = engine.getSections();
+  const rawSections = REACT_NICE_AVATAR_SECTIONS;
   const visibleSections = rawSections.filter(s => !s.hidden && !hiddenSections.includes(s.id));
   
   // Sort sections if order is provided
@@ -53,8 +51,8 @@ export function useAvatarCustomizer<TConfig>({
   }, [sections, activeSectionId]);
 
   const updateConfig = useCallback(
-    (newConfigPartial: Partial<TConfig>) => {
-      const updated = { ...config, ...newConfigPartial } as TConfig;
+    (newConfigPartial: Partial<AvatarConfig>) => {
+      const updated = { ...config, ...newConfigPartial } as AvatarConfig;
       if (!isControlled) {
         setInternalConfig(updated);
       }
@@ -64,27 +62,26 @@ export function useAvatarCustomizer<TConfig>({
   );
 
   const randomize = useCallback(() => {
-    const random = engine.randomizeConfig();
+    const random = genConfig({ isRandom: true } as any);
     if (!isControlled) {
       setInternalConfig(random);
     }
     onChange?.(random);
-  }, [engine, isControlled, onChange]);
+  }, [isControlled, onChange]);
 
   const reset = useCallback(() => {
-    const defaultConf = defaultValue ?? engine.getDefaultConfig();
+    const defaultConf = defaultValue ?? genConfig();
     if (!isControlled) {
       setInternalConfig(defaultConf);
     }
     onChange?.(defaultConf);
-  }, [engine, defaultValue, isControlled, onChange]);
+  }, [defaultValue, isControlled, onChange]);
   
   const handleOptionChange = useCallback((sectionId: string, value: any) => {
-    updateConfig({ [sectionId]: value } as Partial<TConfig>);
+    updateConfig({ [sectionId]: value } as Partial<AvatarConfig>);
   }, [updateConfig]);
 
   return {
-    engine,
     config,
     sections,
     activeSectionId,

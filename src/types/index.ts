@@ -1,19 +1,6 @@
-import type { AvatarEngine, AvatarSection, AvatarOption } from '../core/AvatarEngine';
+import { AvatarConfig } from 'react-nice-avatar';
 
-export interface AvatarStudioTheme {
-  primary?: string;
-  primaryHover?: string;
-  bg?: string;
-  surface?: string;
-  surfaceHover?: string;
-  border?: string;
-  textMain?: string;
-  textMuted?: string;
-  shadowSm?: string;
-  shadowMd?: string;
-  shadowLg?: string;
-  font?: string;
-}
+export type AvatarStudioTheme = 'light' | 'dark' | Record<string, string>;
 
 export interface AvatarStudioClasses {
   container?: string;
@@ -31,18 +18,52 @@ export interface AvatarStudioClasses {
   actionBtn?: string;
 }
 
-export interface AvatarExportData<TConfig = any> {
-  config: TConfig;
+export interface AvatarCustomizeClassNames {
+  root?: string;
+  preview?: string;
+  sectionNav?: string;
+  optionButton?: string;
+  actionBar?: string;
+}
+
+export interface AvatarCustomizeComponents {
+  SectionWrapper?: React.ElementType;
+  SectionHeader?: React.ElementType;
+  OptionButton?: React.ElementType;
+  Footer?: React.ElementType;
+  PreviewWrapper?: React.ElementType;
+  Modal?: React.ElementType;
+  Tabs?: React.ElementType;
+  TabButton?: React.ElementType;
+  Button?: React.ElementType;
+}
+
+export interface AvatarCustomizeSlotProps {
+  root?: React.HTMLAttributes<HTMLDivElement>;
+  previewWrapper?: React.HTMLAttributes<HTMLDivElement>;
+  optionButton?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  colorButton?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  categoryTab?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  saveButton?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  cancelButton?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  randomizeButton?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  downloadButton?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  sectionHeader?: React.HTMLAttributes<HTMLDivElement>;
+  sectionWrapper?: React.HTMLAttributes<HTMLDivElement>;
+  footer?: React.HTMLAttributes<HTMLDivElement>;
+}
+
+export interface AvatarExportData {
+  config: AvatarConfig;
   svg: string;
   pngDataUrl: string;
 }
 
-export interface AvatarCustomizerProps<TConfig = any> {
-  engine?: AvatarEngine<TConfig, any>;
-  value?: TConfig;
-  defaultValue?: TConfig;
-  onChange?: (config: TConfig) => void;
-  onSave?: (config: TConfig, exportData: AvatarExportData<TConfig>) => void;
+export interface AvatarCustomizeProps {
+  value?: AvatarConfig;
+  defaultValue?: AvatarConfig;
+  onChange?: (config: AvatarConfig) => void;
+  onSave?: (config: AvatarConfig, exportData: AvatarExportData) => void;
   onCancel?: () => void;
   hiddenSections?: string[];
   sectionOrder?: string[];
@@ -52,21 +73,26 @@ export interface AvatarCustomizerProps<TConfig = any> {
   style?: React.CSSProperties;
   theme?: AvatarStudioTheme;
   classes?: AvatarStudioClasses;
+  classNames?: AvatarCustomizeClassNames;
+  slots?: AvatarCustomizeComponents; // Alias for backwards compatibility internally
+  components?: AvatarCustomizeComponents;
+  slotProps?: AvatarCustomizeSlotProps;
+  unstyled?: boolean;
+  layout?: 'sidebar' | 'tabs' | 'accordion';
+  previewPosition?: 'top' | 'left' | 'right' | 'bottom';
+  columns?: number;
 }
 
-export interface AvatarCustomizerModalProps<TConfig = any> extends AvatarCustomizerProps<TConfig> {
+export interface AvatarCustomizeModalProps extends AvatarCustomizeProps {
   open: boolean;
   onClose: () => void;
   modalClassName?: string;
   overlayClassName?: string;
 }
 
-export interface AvatarPreviewProps<TConfig = any> {
-  engine?: AvatarEngine<TConfig, any>;
-  config?: TConfig;
+export interface AvatarPreviewProps {
+  config?: AvatarConfig;
   className?: string;
   style?: React.CSSProperties;
   id?: string;
 }
-
-export { AvatarEngine, AvatarSection, AvatarOption };
