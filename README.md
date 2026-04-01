@@ -26,6 +26,7 @@ _(Requires `react-nice-avatar` as a peer dependency since it powers the defaults
 
 ```tsx
 import { AvatarPreview } from "react-avatar-studio";
+import "react-avatar-studio/dist/index.css";
 
 function Profile() {
   return (
@@ -44,6 +45,7 @@ function Profile() {
 ```tsx
 import { useState } from "react";
 import { AvatarCustomizeInline, AvatarConfig } from "react-avatar-studio";
+import "react-avatar-studio/dist/index.css";
 
 function AvatarCreator() {
   const [config, setConfig] = useState<AvatarConfig>();
@@ -68,6 +70,7 @@ function AvatarCreator() {
 ```tsx
 import { useState } from "react";
 import { AvatarCustomizeModal } from "react-avatar-studio";
+import "react-avatar-studio/dist/index.css";
 
 function Settings() {
   const [open, setOpen] = useState(false);
