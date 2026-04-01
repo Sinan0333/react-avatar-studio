@@ -61,10 +61,10 @@
   color: var(--ras-text-main);
   border-radius: var(--ras-radius-lg);
   box-shadow: var(--ras-shadow-lg);
-  overflow: hidden;
   max-width: 1000px;
   margin: 0 auto;
   border: 1px solid var(--ras-border);
+  overflow: auto;
 }
 
 .ras-layout {
@@ -152,7 +152,7 @@
 }
 
 .ras-category-nav-wrapper {
-  padding: 1rem 1.5rem 0;
+  padding: 1rem 1rem 0;
   border-bottom: 1px solid var(--ras-border);
   background: var(--ras-bg);
   z-index: 10;
