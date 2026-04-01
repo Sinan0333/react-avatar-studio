@@ -30,12 +30,11 @@ import "react-avatar-studio/dist/index.css";
 
 function Profile() {
   return (
-    <div style={{ width: "100px", height: "100px" }}>
-      <AvatarPreview
-        config={{ hairStyle: "mohawk" }}
-        className="my-custom-preview"
-      />
-    </div>
+    <AvatarPreview
+      config={config}
+      style={{ width: "100px", height: "100px" }}
+      className="my-custom-preview"
+    />
   );
 }
 ```
