@@ -30,6 +30,7 @@ export function AvatarFooterActions({
     >
       {onCancel && (
         <button
+          type="button"
           {...cancelBtnProps}
           className={cx(cancelClass, classes?.actionBtn, cancelBtnProps.className)}
           onClick={(e) => {
@@ -42,6 +43,7 @@ export function AvatarFooterActions({
       )}
       {onSave && (
         <button
+          type="button"
           {...saveBtnProps}
           className={cx(saveClass, classes?.actionBtn, saveBtnProps.className)}
           onClick={async (e) => {

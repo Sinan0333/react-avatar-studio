@@ -22,6 +22,7 @@ export function AvatarCategoryNav({
         {categories.map(category => (
           <button
             key={category}
+            type="button"
             {...tabProps}
             className={cx(tabClass, activeCategory === category ? 'active' : undefined, classes?.categoryTab, tabProps.className)}
             onClick={(e) => {

@@ -34,6 +34,7 @@ export function AvatarPreviewColumn({
 
       <div className={cx(!unstyled ? 'ras-avatar-actions' : undefined, classNames?.actionBar)}>
         <button
+          type="button"
           {...randomizeBtnProps}
           className={cx(!unstyled ? 'ras-btn ras-btn-secondary ras-randomize-btn' : undefined, classes?.actionBtn, randomizeBtnProps.className)}
           onClick={(e) => {
@@ -45,6 +46,7 @@ export function AvatarPreviewColumn({
         </button>
 
         <button
+          type="button"
           {...downloadBtnProps}
           className={cx(downloadBtnClass, classes?.actionBtn, downloadBtnProps.className)}
           onClick={(e) => {

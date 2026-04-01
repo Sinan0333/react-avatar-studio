@@ -38,6 +38,7 @@ export function AvatarOptionGrid({
           return (
             <OptionButton
               key={String(option.value)}
+              type="button"
               {...colorBtnProps}
               className={cx(colorBtnClass, isSelected ? 'active' : undefined, classes?.colorBtn, classNames?.optionButton, colorBtnProps.className)}
               style={{ backgroundColor: option.colorHex || String(option.value), ...colorBtnProps.style }}
@@ -63,6 +64,7 @@ export function AvatarOptionGrid({
         return (
           <OptionButton
             key={String(option.value)}
+            type="button"
             {...optionBtnProps}
             className={cx(optionBtnClass, isSelected ? 'active' : undefined, classes?.optionBtn, classNames?.optionButton, optionBtnProps.className)}
             onClick={(e: any) => {
