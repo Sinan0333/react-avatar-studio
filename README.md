@@ -53,10 +53,11 @@ function AvatarCreator() {
     <AvatarCustomizeInline
       value={config}
       onChange={setConfig}
-      onSave={(finalConfig, exportData) => {
-        console.log("Saved!", finalConfig);
-        console.log("SVG String: ", exportData.svg);
-        console.log("PNG Data URL: ", exportData.pngDataUrl);
+      onSave={(data) => {
+        console.log("Saved Config!", data.config);
+        console.log("SVG String: ", data.svg);
+        console.log("Base64 PNG: ", data.base64);
+        console.log("Binary Blob: ", data.blob);
       }}
       onCancel={() => console.log("Cancelled!")}
     />
@@ -80,9 +81,9 @@ function Settings() {
       <AvatarCustomizeModal
         open={open}
         onClose={() => setOpen(false)}
-        onSave={(newConfig, exportData) => {
+        onSave={(exportData) => {
           // save to DB
-          console.log(newConfig, exportData);
+          console.log(exportData.config, exportData.base64, exportData.blob);
           setOpen(false);
         }}
       />

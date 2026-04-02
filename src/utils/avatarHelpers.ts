@@ -1,7 +1,7 @@
 /**
  * Utility to extract fully rendered SVG and high-resolution PNG data URLs from the avatar DOM node.
  */
-export async function getAvatarData(elementId: string): Promise<{ svg: string; pngDataUrl: string } | null> {
+export async function getAvatarData(elementId: string): Promise<{ svg: string; base64: string; blob: Blob } | null> {
   const node = document.getElementById(elementId);
   if (!node) {
     console.error(`Avatar node with id "${elementId}" not found.`);
@@ -40,8 +40,17 @@ export async function getAvatarData(elementId: string): Promise<{ svg: string; p
       if (ctx) {
         ctx.scale(scale, scale);
         ctx.drawImage(img, 0, 0);
+        
         const pngDataUrl = canvas.toDataURL('image/png');
-        resolve({ svg: rawHtml, pngDataUrl });
+        
+        // Return blob as well
+        canvas.toBlob((blob) => {
+          resolve({ 
+            svg: rawHtml, 
+            base64: pngDataUrl,
+            blob: blob || new Blob() 
+          });
+        }, 'image/png');
       } else {
         resolve(null);
       }
@@ -62,7 +71,7 @@ export async function downloadAvatarAsPng(elementId: string, filename = 'avatar.
   if (data) {
     const a = document.createElement('a');
     a.download = filename;
-    a.href = data.pngDataUrl;
+    a.href = data.base64;
     a.click();
   }
 }

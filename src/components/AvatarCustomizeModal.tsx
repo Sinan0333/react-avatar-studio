@@ -50,8 +50,8 @@ export function AvatarCustomizeModal(props: AvatarCustomizeModalProps) {
               if (inlineProps.onCancel) inlineProps.onCancel();
               onClose();
             }}
-            onSave={(config, exportData) => {
-              if (inlineProps.onSave) inlineProps.onSave(config, exportData);
+            onSave={(exportData) => {
+              if (inlineProps.onSave) inlineProps.onSave(exportData);
               onClose();
             }}
           />

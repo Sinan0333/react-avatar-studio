@@ -56,14 +56,15 @@ export interface AvatarCustomizeSlotProps {
 export interface AvatarExportData {
   config: AvatarConfig;
   svg: string;
-  pngDataUrl: string;
+  base64: string;
+  blob: Blob;
 }
 
 export interface AvatarCustomizeProps {
   value?: AvatarConfig;
   defaultValue?: AvatarConfig;
   onChange?: (config: AvatarConfig) => void;
-  onSave?: (config: AvatarConfig, exportData: AvatarExportData) => void;
+  onSave?: (exportData: AvatarExportData) => void;
   onCancel?: () => void;
   hiddenSections?: string[];
   sectionOrder?: string[];

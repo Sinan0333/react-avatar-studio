@@ -49,10 +49,11 @@ export function AvatarFooterActions({
           onClick={async (e) => {
             const helpers = await import('../utils/avatarHelpers');
             const exportData = await helpers.getAvatarData('ras-avatar-download-target');
-            onSave(config, {
+            onSave({
               config,
               svg: exportData?.svg || '',
-              pngDataUrl: exportData?.pngDataUrl || '',
+              base64: exportData?.base64 || '',
+              blob: exportData?.blob || new Blob(),
             });
             if (saveBtnProps.onClick) saveBtnProps.onClick(e);
           }}
