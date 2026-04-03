@@ -1,6 +1,6 @@
 {
   "name": "react-avatar-studio",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A production-ready, highly modular, engine-agnostic React + TypeScript NPM package for avatar customization.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
