@@ -1,7 +1,7 @@
 # React Avatar Studio
 
 <p align="center">
-  <img src="assets/preview.png" alt="React Avatar Studio Preview" width="600" />
+  <img src="assets/preview.gif" alt="React Avatar Studio Preview" width="600" />
 </p>
 
 A production-ready, engine-agnostic React + TypeScript NPM package for avatar customization, featuring `react-nice-avatar` as the default v1 rendering engine.
